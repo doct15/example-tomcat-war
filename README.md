@@ -10,7 +10,7 @@ Steps:
 
 2. create the app
 
-  distelli create <lts>username<gts>/SimpleTomcatWebApp
+  distelli create &lt;username&gt;/SimpleTomcatWebApp
 
 3. package using maven
 
