@@ -1,7 +1,8 @@
 <username>/SimpleTomcatWebApp:
   Env:
     # Use environment variables to specify the path to your tomcat
-    # installation. This is where the webapps will be copied
+    # installation. This is where the webapps will be copied, adjust
+    # for your environment as necessary!
     - CATALINA_HOME: "/var/lib/tomcat7"
 
     # If the name of the war file is not known ahead of time (maybe
