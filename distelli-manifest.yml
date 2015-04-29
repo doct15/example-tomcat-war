@@ -1,0 +1,32 @@
+<username>/SimpleTomcatWebApp:
+  Env:
+    # Use environment variables to specify the path to your tomcat
+    # installation. This is where the webapps will be copied
+    - CATALINA_HOME: "/var/lib/tomcat7"
+
+    # If the name of the war file is not known ahead of time (maybe
+    # created dynamically by jenkins) you can specify the environment
+    # variable here and we can use this to copy the file to a well
+    # known name
+    #- WAR_NAME: '$JENKINS_ID.war'
+
+  PreRelease:
+    # If we need to rename the war file from a name containing GUIDs
+    # to a well known name we can do it here before we package it
+    # up. Uncomment this if the WAR_NAME variable above is uncommented
+    #- 'sudo cp -f $WARNAME SimpleTomcatWebApp.war'
+
+  PkgInclude:
+    - '/target/SimpleTomcatWebApp.war'
+
+  PostInstall:
+    # Copy the all the WAR files packaged to tomcat webapps dir.
+    - 'sudo cp -f ./target/*.war $CATALINA_HOME/webapps/'
+
+    # By default tomcat detects if the war file has changed and
+    # automatically extracts it. If restart is required you can
+    # restart tomcat with the command below.
+
+    # Restart Tomcat - You might have to use a different command
+    # depending on how tomcat is installed
+    #- 'sudo service tomcat7 restart'
