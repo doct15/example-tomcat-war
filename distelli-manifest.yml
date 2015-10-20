@@ -1,8 +1,11 @@
 bmcgehee/SimpleTomcatWebApp:
 
   Env:
+    # Set the below enviornment variables for your environment
     - CATALINA_HOME: "/var/lib/tomcat7"
     - JAVA_HOME: "/usr/lib/jvm/java-7-oracle/jre"
+    # The port number below is only for reference. Set it to the
+    #  port number of your tomcat server.
     - PORT: "8080"
 
   PreBuild:
@@ -22,13 +25,20 @@ bmcgehee/SimpleTomcatWebApp:
     - '/target/SimpleTomcatWebApp.war'
  
   PreInstall:
-    - sudo add-apt-repository -y ppa:webupd8team/java
-    - sudo apt-get -y update
-    - echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
-    - echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections    
-    - sudo apt-get -y install oracle-java7-installer
-    - sudo apt-get -y install oracle-java7-set-default
-    - sudo apt-get -y install tomcat7
+    # The below preinstall steps will pre-install
+    #  Java
+    #  Tomcat 7
+    # 
+    # These steps are built for Ubuntu 14
+    # Unremark them if you need to install tomcat
+    #
+    #- sudo add-apt-repository -y ppa:webupd8team/java
+    #- sudo apt-get -y update
+    #- echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+    #- echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections    
+    #- sudo apt-get -y install oracle-java7-installer
+    #- sudo apt-get -y install oracle-java7-set-default
+    #- sudo apt-get -y install tomcat7
 
   PostInstall:
     - echo "PostStart"
