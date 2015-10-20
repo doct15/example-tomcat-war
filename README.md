@@ -1,25 +1,5 @@
-# SimpleTomcatWebApp
+# example-tomcat-war
 
-This simple example shows you how to deploy a simple tomcat war file using Distelli.
+This is an example java build and deploy of the resulting
+war file to a tomcat 7 server.
 
-Steps:
-
-1. Set your username in the manifest file
-
- Change <username> to your username
-
-2. create the app
-
-  distelli create &lt;username&gt;/SimpleTomcatWebApp
-
-3. package using maven
-
-  mvn package
-
-4. push
-
-  distelli push -m "Initial release of SimpleTomcatWebApp"
-
-4. deploy
-
-  deploy using the web UI.
