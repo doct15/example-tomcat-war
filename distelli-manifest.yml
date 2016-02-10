@@ -7,6 +7,9 @@ bmcgeheecap1/example-tomcat-war:
     # The port number below is only for reference. Set it to the
     #  port number of your tomcat server.
     - PORT: "8080"
+    - M2_HOME: "/usr/local/apache-maven-3.2.1"
+    - M2: "$M2_Home/bin"
+    - PATH: "$M2:$PATH"
 
   PreBuild:
     #- sudo add-apt-repository -y ppa:webupd8team/java
@@ -19,7 +22,7 @@ bmcgeheecap1/example-tomcat-war:
     #- sudo apt-get -y install maven
 
   Build:
-    - mvn package
+    #- mvn package
 
   PkgInclude:
     - '/target/SimpleTomcatWebApp.war'
@@ -39,6 +42,12 @@ bmcgeheecap1/example-tomcat-war:
     #- sudo apt-get -y install oracle-java7-installer
     #- sudo apt-get -y install oracle-java7-set-default
     #- sudo apt-get -y install tomcat7
+    - sudo yum -y install java
+    - cd /usr/local
+    - sudo curl -O http://mirror.olnevhost.net/pub/apache/maven/binaries/apache-maven-3.2.1-bin.tar.gz
+    - sudo tar zxvf apache-maven-3.2.1-bin.tar.gz 
+    - mvn -version
+    - mvn package
 
   PostInstall:
     - publicip=$(curl -s ident.me)
