@@ -2,8 +2,8 @@ bmcgeheecap1/example-tomcat-war:
 
   Env:
     # Set the below enviornment variables for your environment
-    - CATALINA_HOME: "/var/lib/tomcat7"
-    - JAVA_HOME: "/usr/lib/jvm/java-7-oracle/jre"
+    - CATALINA_HOME: "/var/lib/tomcat"
+    - JAVA_HOME: "/usr/lib/jvm/jre"
     # The port number below is only for reference. Set it to the
     #  port number of your tomcat server.
     - PORT: "8080"
@@ -41,7 +41,6 @@ bmcgeheecap1/example-tomcat-war:
     #- sudo apt-get -y install tomcat7
 
   PostInstall:
-    - echo "PostStart"
     - publicip=$(curl -s ident.me)
     - echo "Public IP $publicip"
     - 'sudo cp -f ./target/*.war $CATALINA_HOME/webapps/'
