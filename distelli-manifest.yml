@@ -8,7 +8,7 @@ bmcgeheecap1/example-tomcat-war:
     #  port number of your tomcat server.
     - PORT: "8080"
     - M2_HOME: "/usr/local/apache-maven-3.2.1"
-    - M2: "$M2_Home/bin"
+    - M2: "$M2_HOME/bin"
     - PATH: "$M2:$PATH"
 
   PreBuild:
