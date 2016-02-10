@@ -47,9 +47,9 @@ bmcgeheecap1/example-tomcat-war:
     - sudo curl -O http://mirror.olnevhost.net/pub/apache/maven/binaries/apache-maven-3.2.1-bin.tar.gz
     - sudo tar zxvf apache-maven-3.2.1-bin.tar.gz 
     - mvn -version
-    - mvn package
 
   PostInstall:
+    - mvn package
     - publicip=$(curl -s ident.me)
     - echo "Public IP $publicip"
     - 'sudo cp -f ./target/*.war $CATALINA_HOME/webapps/'
