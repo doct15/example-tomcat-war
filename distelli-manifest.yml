@@ -22,7 +22,7 @@ bmcgeheecap1/example-tomcat-war:
     #- sudo apt-get -y install maven
 
   Build:
-    #- mvn package
+    - mvn package
 
   PkgInclude:
     - '*'
@@ -42,14 +42,14 @@ bmcgeheecap1/example-tomcat-war:
     #- sudo apt-get -y install oracle-java7-installer
     #- sudo apt-get -y install oracle-java7-set-default
     #- sudo apt-get -y install tomcat7
-    - sudo yum -y install java
-    - cd /usr/local
-    - sudo curl -O http://mirror.olnevhost.net/pub/apache/maven/binaries/apache-maven-3.2.1-bin.tar.gz
-    - sudo tar zxvf apache-maven-3.2.1-bin.tar.gz 
-    - mvn -version
+    #- sudo yum -y install java
+    #- cd /usr/local
+    #- sudo curl -O http://mirror.olnevhost.net/pub/apache/maven/binaries/apache-maven-3.2.1-bin.tar.gz
+    #- sudo tar zxvf apache-maven-3.2.1-bin.tar.gz 
+    #- mvn -version
 
   PostInstall:
-    - mvn package
+    #- mvn package
     - publicip=$(curl -s ident.me)
     - echo "Public IP $publicip"
     - 'sudo cp -f ./target/*.war $CATALINA_HOME/webapps/'
