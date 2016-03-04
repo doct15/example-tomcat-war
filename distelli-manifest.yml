@@ -2,7 +2,7 @@ bmcgehee/example-tomcat-war:
 
   Env:
     # Set the below enviornment variables for your environment
-    - CATALINA_HOME: "/var/lib/tomcat"
+    - CATALINA_HOME: "/var/lib/tomcat7"
     - JAVA_HOME: "/usr/lib/jvm/jre"
     # The port number below is only for reference. Set it to the
     #  port number of your tomcat server.
