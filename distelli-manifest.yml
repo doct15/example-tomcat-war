@@ -25,7 +25,8 @@ bmcgeheecap1/example-tomcat-war:
     - mvn package
 
   PkgInclude:
-    - '*'
+    #- '*'
+    - ./target/*.war
  
   PreInstall:
     # The below preinstall steps will pre-install
